@@ -93,5 +93,20 @@ const und = undefined;
 function error(message: string): never {
   throw new Error(message);
 }
-error('出错了');
+// error('出错了');
 // object
+declare function create(obj: object | null): void;
+interface UserObject {
+  name: string;
+}
+const userobj: UserObject = {
+  name: '张三',
+};
+// create(userobj);
+// create({prop: 0});
+//类型断言
+const someValue: any = 'hello 断言';
+const strLength: number = (<string>someValue).length;
+console.log(strLength, 'strLength 断言 <string>someValue');
+const strLength2: number = (someValue as string).length;
+console.log(strLength2, 'strLength2 断言 someValue as string');
